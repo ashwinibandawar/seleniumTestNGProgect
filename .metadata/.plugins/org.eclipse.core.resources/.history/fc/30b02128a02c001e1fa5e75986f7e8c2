@@ -1,0 +1,21 @@
+package Collections;
+
+import java.util.HashSet;
+
+public class RemoveDublicatesFromString {
+public static void main(String[] args) {
+	
+	String s="iLovejava";
+	char ch[]=s.toCharArray();
+	HashSet<Character>hs=new HashSet<Character>();
+	for(char k:ch) {
+		hs.add(k);
+	}
+	
+	System.out.println(hs);
+	
+	
+	
+	
+}
+}

@@ -1,0 +1,52 @@
+package PageobjectModel;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class MyInfoPageObject {
+
+	public WebDriver driver;
+	
+	public MyInfoPageObject(WebDriver driver) {
+		
+	this.driver=driver;
+	
+	}
+	private By myInfo =By.xpath("//span[text()='My Info']");
+	private By firstName =By.xpath("//input[@name='firstName']");
+	private By MiddleName =By.xpath("//input[@name='middleName']");
+	private By lastName =By.xpath("//input[@name='lastName']");
+	private By NationalityDropdown =By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]");
+	private By NatiotionalityOptions=By.xpath("(//div[@class='oxd-select-text-input'])[1]");
+	
+	public WebElement clickOnMyInfo() {
+		return driver.findElement(myInfo);
+		
+	}
+	public WebElement enterFirstName() {
+		return driver.findElement(firstName);
+		
+	}
+	public WebElement enterMiddleName() {
+		return driver.findElement(MiddleName);
+		
+	}
+	public WebElement enterLastName() {
+		return driver.findElement(lastName);
+		
+	}
+	public WebElement NationalityDropdown() {
+		return driver.findElement(NationalityDropdown);
+		
+	}
+	public List<WebElement> NationalityOption() {
+		return driver.findElements(NatiotionalityOptions);
+		
+	}
+	
+	
+	
+}

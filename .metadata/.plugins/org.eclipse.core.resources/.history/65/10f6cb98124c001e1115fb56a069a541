@@ -1,0 +1,21 @@
+package TestCase;
+
+import java.io.IOException;
+
+
+import org.testng.annotations.Test;
+
+import Resources.BaseClass;
+
+public class LoginTestCase extends BaseClass {
+
+	@Test
+
+	public void verifyValidLogin() throws IOException {
+
+		InitializeDriver();
+		
+		
+
+	}
+}

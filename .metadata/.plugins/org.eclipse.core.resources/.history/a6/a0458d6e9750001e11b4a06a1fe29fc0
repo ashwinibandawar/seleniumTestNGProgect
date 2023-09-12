@@ -1,0 +1,17 @@
+package Resources;
+
+import org.openqa.selenium.By;
+
+public class CommonMethod {
+
+	public static void HandleSoftAssert(String Actual, String Expected) {
+
+		SoftAssert softAssert = new SoftAssert();
+
+		String Expected_PageText = "Dashboard";
+		String Actual_PageText = driver.findElement(By.xpath("//h6[text()='Dashboard']")).getText();
+
+		softAssert.assertEquals(Actual_PageText, Expected_PageText);
+		softAssert.assertAll();
+	}
+}

@@ -1,0 +1,39 @@
+package TestCase;
+
+import java.io.IOException;
+
+
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import PageobjectModel.LoginPageObject;
+import Resources.BaseClass;
+
+public class LoginTestCase extends BaseClass {
+
+	@Test
+
+	public void verifyValidLogin() throws IOException, InterruptedException {
+
+		InitializeDriver();
+		
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		
+		Thread.sleep(2000);
+		LoginPageObject lpo = new LoginPageObject(driver);
+		
+		lpo.enterUserName().sendKeys("Admin");
+		lpo.enterPassword().sendKeys("admin123");
+		lpo.ClickOnLogin().click();
+		Thread.sleep(2000);
+		
+		SoftAssert Assert=new SoftAssert();
+		
+		String expectedUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
+		String acctualUrl = driver.getCurrentUrl();
+		
+		Assert.assertAll();
+		
+		driver.close();
+	}
+}

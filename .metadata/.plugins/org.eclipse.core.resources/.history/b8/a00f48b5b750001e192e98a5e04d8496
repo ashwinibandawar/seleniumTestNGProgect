@@ -1,0 +1,19 @@
+package Resources;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
+
+public class CommonMethod {
+
+	public static void HandleSoftAssert(String Actual, String Expected) {
+
+		SoftAssert softAssert = new SoftAssert();
+		
+		String Actual_PageText =Actual;
+		String Expected_PageText = Expected;
+		
+		softAssert.assertEquals(Actual_PageText, Expected_PageText);
+		softAssert.assertAll();
+	}
+}

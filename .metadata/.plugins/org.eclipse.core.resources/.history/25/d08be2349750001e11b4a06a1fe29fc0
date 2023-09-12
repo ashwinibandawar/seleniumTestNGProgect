@@ -1,0 +1,18 @@
+package Resources;
+
+import org.openqa.selenium.By;
+
+public class CommonMethod {
+
+	public static void HandleSoftAssert(String Actual,String Expected) {
+		
+		SoftAssert Assert = new SoftAssert();
+		
+		String actualTextError = Actual;
+		String expectedErrorText = Expected;
+		
+		Assert.assertAll();
+	}
+	}
+	
+

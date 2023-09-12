@@ -1,0 +1,33 @@
+package PageobjectModel;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class LoginPageObject {
+
+	WebDriver driver;
+	
+	public LoginPageObject(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	By userName = By.xpath("//input[@name='username']");
+	By password = By.xpath("//input[@name='password']");
+	By Login = By.xpath("//button[@type='submit']");
+	
+	
+	public WebElement enterUserName() {
+		return driver.findElement(userName);
+	}
+	
+	public WebElement enterPassword() {
+		return driver.findElement(password);
+	}
+	
+	public WebElement ClickOnLogin() {
+		return driver.findElement(Login);
+	}
+	
+	
+}

@@ -1,0 +1,103 @@
+package PageobjectModel;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class MyInfoPageObject {
+
+	public WebDriver driver;
+
+	public MyInfoPageObject(WebDriver driver) {
+
+		this.driver = driver;
+
+	}
+
+	private By myInfo = By.xpath("//span[text()='My Info']");
+	private By firstName = By.xpath("//input[@name='firstName']");
+	private By MiddleName = By.xpath("//input[@name='middleName']");
+	private By lastName = By.xpath("//input[@name='lastName']");
+	private By Nickname = By.xpath("(//div[@data-v-957b4417]/input)[4]");
+	private By enterEmployeename = By.xpath("(//div[@data-v-957b4417]/input)[5]");
+	private By enterOtherIDname = By.xpath("(//div[@data-v-957b4417]/input)[6]");
+	private By enterDriverLicensnumber = By.xpath("(//div[@data-v-957b4417]/input)[7]");
+	private By LicenceExpireDate = By.xpath("//div[@data-v-4a95a2e0]/input[1]");
+	private By SSNNumber = By.xpath("(//div[@data-v-957b4417]/input)[8]");
+	private By SINNumber = By.xpath("(//div[@data-v-957b4417]/input)[9]");
+	private By NationalityDropdown = By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]");
+	private By NatiotionalityOptions = By.xpath(("//div[@class='oxd-select-option']"));
+	private By MaritalStatus = By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]");
+	private By bloodGroup = By.xpath("(//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow'])[1]");
+   
+	
+	public WebElement clickOnMyInfo() {
+		return driver.findElement(myInfo);
+
+	}
+
+	public WebElement enterFirstName() {
+		return driver.findElement(firstName);
+
+	}
+
+	public WebElement enterMiddleName() {
+		return driver.findElement(MiddleName);
+
+	}
+
+	public WebElement enterLastName() {
+		return driver.findElement(lastName);
+
+	}
+	
+	public WebElement enterNickname() {
+		return driver.findElement(Nickname);
+		
+	}
+	public WebElement enterEmployeename() {
+		return driver.findElement(enterEmployeename);
+		
+	}
+	public WebElement enterOtherIDname() {
+		return driver.findElement(enterOtherIDname);
+		
+	}
+	public WebElement enterDriverLicensnumber() {
+		return driver.findElement(enterDriverLicensnumber);
+		
+	}
+	public WebElement lincenseExpireDate() {
+		return driver.findElement(LicenceExpireDate);
+		
+	}
+	public WebElement SSNNumber() {
+		return driver.findElement(SSNNumber);
+		
+	}
+	public WebElement enterSINNumber() {
+		return driver.findElement(SINNumber);
+		
+	}
+
+	public WebElement NationalityDropdown() {
+		return driver.findElement(NationalityDropdown);
+
+	}
+
+	public List<WebElement> NationalityOption() {
+		return driver.findElements(NatiotionalityOptions);
+	}
+
+	public List<WebElement> MaritalStatus() {
+		return driver.findElements(MaritalStatus);
+	}
+
+	public List<WebElement> bloodGroup() {
+		return driver.findElements(bloodGroup);
+
+	}
+
+}

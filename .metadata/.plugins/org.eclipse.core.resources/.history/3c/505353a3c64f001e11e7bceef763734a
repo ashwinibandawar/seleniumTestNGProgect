@@ -1,0 +1,104 @@
+package TestCase;
+
+import java.io.IOException;
+import java.util.List;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import PageobjectModel.LoginPageObject;
+import PageobjectModel.MyInfoPageObject;
+import Resources.BaseClass;
+
+public class MyInfoTestCases extends BaseClass {
+
+	@Test
+	public void fillPersonalDetails() throws IOException, InterruptedException {
+		InitializeDriver();
+
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
+		Thread.sleep(2000);
+		LoginPageObject lpo = new LoginPageObject(driver);
+
+		lpo.enterUserName().sendKeys("Admin");
+		lpo.enterPassword().sendKeys("admin123");
+		lpo.ClickOnLogin().click();
+		Thread.sleep(2000);
+
+		MyInfoPageObject mpo = new MyInfoPageObject(driver);
+		Thread.sleep(2000);
+
+		mpo.clickOnMyInfo().click();
+
+		Thread.sleep(2000);
+
+		mpo.enterFirstName().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mpo.enterFirstName().sendKeys("Ashwini");
+		Thread.sleep(2000);
+		
+		mpo.enterMiddleName().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mpo.enterMiddleName().sendKeys("Digambar");
+		Thread.sleep(2000);
+		
+		mpo.enterLastName().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mpo.enterLastName().sendKeys("bandawar");
+		Thread.sleep(2000);
+		
+		mpo.enterNickname().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mpo.enterNickname().sendKeys("Ashu");
+		Thread.sleep(2000);
+		
+		mpo.enterEmployeename().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mpo.enterEmployeename().sendKeys("0045");
+		Thread.sleep(2000);
+		mpo.enterOtherIDname().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mpo.enterOtherIDname().sendKeys("012");
+		Thread.sleep(2000);
+		mpo.enterDriverLicensnumber().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mpo.enterDriverLicensnumber().sendKeys("3245");
+		mpo.lincenseExpireDate().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mpo.lincenseExpireDate().sendKeys("8/10/2020");
+		mpo.SSNNumber().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		Thread.sleep(2000);
+		mpo.SSNNumber().sendKeys("123");
+		mpo.enterSINNumber().sendKeys("456");
+		Thread.sleep(2000);
+		mpo.clickOnfemale().click();
+		Thread.sleep(2000);
+		
+		mpo.NationalityDropdown().click();
+
+		List<WebElement> obj = mpo.NationalityOption();
+		for (WebElement k : obj) {
+			if (k.getText().equalsIgnoreCase("Indian")) {
+				k.click();
+				break;
+			}
+			
+			mpo.MaritalStatus().click();
+			Thread.sleep(2000);
+
+			List<WebElement> obj1 = mpo.MaritalStatus();
+			for (WebElement b : obj1) {
+				if (b.getText().equalsIgnoreCase("Single")) {
+				}
+			}
+
+			List<WebElement> obj2 = mpo.bloodGroup();
+			for (WebElement c : obj2) {
+				if (c.getText().equalsIgnoreCase("O+")) {
+					c.click();
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,40 @@
+package Collections;
+
+import java.util.ArrayList;
+
+public class ArrayListDemo {
+	
+	//List --Interface
+	//ArrayList--class
+	
+	//Array--Arry Size fixed, we can't delete, we can't add value
+public static void main(String[] args) {
+	
+	ArrayList<Integer> obj=new ArrayList<Integer>();
+	
+	obj.add(10);
+	obj.add(20);
+	obj.add(30);
+	obj.add(10);
+	
+	System.out.println(obj);
+	System.out.println(obj.size());
+	
+	obj.add(1,40);//Add
+	System.out.println(obj);
+	
+	obj.set(3, 60);//replace
+	System.out.println(obj);//
+	
+	obj.remove(1);
+	System.out.println(obj);
+	
+	
+	
+	
+	
+	
+	
+	
+}
+}

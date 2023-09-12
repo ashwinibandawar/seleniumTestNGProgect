@@ -1,0 +1,65 @@
+package TestCase;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import PageobjectModel.LoginPageObject;
+import Resources.BaseClass;
+import Resources.CommonMethod;
+import Resources.Constants;
+
+public class LoginTestCase extends BaseClass {
+
+	@Test
+
+	public void verifyValidLogin() throws IOException, InterruptedException {
+
+		InitializeDriver();
+
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
+		Thread.sleep(2000);
+		LoginPageObject lpo = new LoginPageObject(driver);
+
+		lpo.enterUserName().sendKeys("Admin");
+		lpo.enterPassword().sendKeys("admin123");
+		lpo.ClickOnLogin().click();
+		Thread.sleep(2000);
+
+		SoftAssert softAssert = new SoftAssert();
+
+		String Expected_PageText = "Dashboard";
+		String Actual_PageText = driver.findElement(By.xpath("//h6[text()='Dashboard']")).getText();
+
+		softAssert.assertEquals(Actual_PageText, Expected_PageText);
+		softAssert.assertAll();
+
+		driver.close();
+	}
+
+	@Test
+	public void verifyInvalidLogin() throws IOException, InterruptedException {
+		InitializeDriver();
+
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
+		Thread.sleep(2000);
+		LoginPageObject lpo = new LoginPageObject(driver);
+
+		lpo.enterUserName().sendKeys("Ashu");
+		lpo.enterPassword().sendKeys("123");
+		lpo.ClickOnLogin().click();
+		Thread.sleep(2000);
+
+		/*
+		 * SoftAssert Assert = new SoftAssert(); String expectedErrorText =
+		 * "Invalid credentials"; String actualTextError =
+		 * driver.findElement(By.xpath("//p[text()='Invalid credentials']")).getText();
+		 * Assert.assertAll();
+		 */
+		driver.close();
+	}
+}

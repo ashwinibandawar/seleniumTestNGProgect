@@ -1,0 +1,9 @@
+package Resources;
+
+public class CommonMethod {
+
+	public static void HandleSoftAssert() {
+		
+	}
+	
+}
